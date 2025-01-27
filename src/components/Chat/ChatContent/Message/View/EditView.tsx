@@ -180,6 +180,10 @@ const EditViewButtons = memo(
     const generating = useStore.getState().generating;
     const advancedMode = useStore((state) => state.advancedMode);
 
+    function toApologizePage() {
+        window.location.href = 'https://youtu.be/LAMWMV4uQLc?si=dxfKPhFPRiRhOAjP'
+    }
+
     return (
       <div className='flex'>
         <div className='flex-1 text-center mt-2 flex justify-center'>
@@ -196,6 +200,15 @@ const EditViewButtons = memo(
               </div>
             </button>
           )}
+
+          <button
+              className={`btn relative mr-2 btn-primary`}
+              onClick={toApologizePage}
+            >
+              <div className='flex items-center justify-center gap-2'>
+                Permintaan Maaf
+              </div>
+            </button>
 
           {sticky || (
             <button
