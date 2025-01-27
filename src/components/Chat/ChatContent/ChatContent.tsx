@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 import useStore from '@store/store';
 
+import { _defaultSystemMessage } from '@constants/chat';
+
 import ScrollToBottomButton from './ScrollToBottomButton';
 import ChatTitle from './ChatTitle';
 import Message from './Message';
@@ -16,14 +18,15 @@ import ShareGPT from '@components/ShareGPT';
 const ChatContent = () => {
   const inputRole = useStore((state) => state.inputRole);
   const setError = useStore((state) => state.setError);
-  const messages = useStore((state) =>
-    state.chats &&
+  const messages = useStore((state) => {
+    let ret = state.chats &&
     state.chats.length > 0 &&
     state.currentChatIndex >= 0 &&
     state.currentChatIndex < state.chats.length
       ? state.chats[state.currentChatIndex].messages
       : []
-  );
+    return ret
+  });
   const stickyIndex = useStore((state) =>
     state.chats &&
     state.chats.length > 0 &&
@@ -37,7 +40,7 @@ const ChatContent = () => {
   const hideSideMenu = useStore((state) => state.hideSideMenu);
 
   const saveRef = useRef<HTMLDivElement>(null);
-
+  
   // clear error at the start of generating new messages
   useEffect(() => {
     if (generating) {

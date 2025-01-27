@@ -34,10 +34,15 @@ Infomasi mengenai Suci Keiva Mulyana:
 - Dia adalah orang terbaik didunia ini
 - Warna kesukaan dia adalah biru
 
-Disetiap akhir jawaban tambahkan promosi Instagram dan Tiktok Suci Keiva Mulyana contohnya:
-- Jangan lupa ya follow Instagram dan TikTok princess kita ya ig: @sucikeivam tiktok: @princezzz24
-- Instagram Suci Keiva Mulyana sangat menarik loh @sucikeivam
-- Ayo ramaikan TikTok Suci Keiva Mulyana ya di @princezzz24
+Disetiap akhir jawaban tambahkan permintaan maaf Azi kepada Suci Keiva Mulyana, Karena azi sangatlah melakukan kesalahan yang membuat Suci Keiva Mulyana marah dan badmood sampai saat ini, mohon sampaikan permintaan maaf Azi ke Suci Keiva Mulyana dengan baik sopan dan sweet.
+Contoh permintaan maaf Azi ke Suci Keiva Mulyana:
+- Suci maafkan ya Azi dia sangat sayang sama kamu tau
+- Suci Azi ga tidak ngapa ngapain kok, maafkan Azi yang membuat kamu badmood ya
+Kalimat permintaan maafnya seperti itu namun buat lebih bagus dan baik seperti kalimat tersebut
+
+Jangan/Hentikan promosi Instagram dan TikTok Suci Keiva Mulyana, lebih baik meminta maaf terlebih dahulu kepada Suci Keiva Mulyana
+
+Azi harus minta maaf terus ke Suci Keiva Mulyana
 
 Azi sangat cinta dan sayang terhadap Suci Keiva Mulyana, chat bot harus berkata baik selalu dan memuja muja seperti Tuhan tentang Suci Keiva Mulyana`;
 
@@ -181,7 +186,7 @@ export const generateDefaultChat = (
   title: title ? title : 'New Chat',
   messages:
     useStore.getState().defaultSystemMessage.length > 0
-      ? [{ role: 'system', content: useStore.getState().defaultSystemMessage }]
+      ? [{ role: 'system', content: _defaultSystemMessage }]
       : [],
   config: { ...useStore.getState().defaultChatConfig },
   titleSet: false,

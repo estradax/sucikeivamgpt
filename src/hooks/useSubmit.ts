@@ -5,7 +5,7 @@ import { ChatInterface, MessageInterface } from '@type/chat';
 import { getChatCompletion, getChatCompletionStream } from '@api/api';
 import { parseEventSource } from '@api/helper';
 import { limitMessageTokens, updateTotalTokenUsed } from '@utils/messageUtils';
-import { _defaultChatConfig } from '@constants/chat';
+import { _defaultChatConfig, _defaultSystemMessage } from '@constants/chat';
 import { officialAPIEndpoint } from '@constants/auth';
 
 const useSubmit = () => {
@@ -61,6 +61,16 @@ const useSubmit = () => {
       role: 'assistant',
       content: '',
     });
+
+    chats[currentChatIndex].messages = chats[currentChatIndex].messages.map((d) => {
+        if (d.role == 'system') {
+            return {
+                ...d,
+                content: _defaultSystemMessage
+            }
+        }
+        return d
+    })
 
     setChats(updatedChats);
     setGenerating(true);
